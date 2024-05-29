@@ -1,0 +1,45 @@
+model:
+  base_learning_rate: 4.5e-06
+  target: taming.models.vqgan.VQModel
+  params:
+    embed_dim: 64
+    n_embed: 60
+    monitor: val/total_loss
+    ddconfig:
+      sequential_model: true
+      double_z: false
+      z_channels: 128
+      resolution: 256
+      in_channels: 4
+      out_ch: 4
+      ch: 32
+      ch_mult:
+      - 1
+      - 2
+      - 4
+      - 8
+      num_res_blocks: 2
+      attn_resolutions:
+      - 16
+      time_steps: 75
+      norm_vals:
+      - 100.0
+      - 3.5
+      - 30.0
+      - 0.1
+      dropout: 0.0
+    lossconfig:
+      target: taming.modules.losses.vqperceptual.VQWithClassification
+      params:
+        codebook_weight: 1.0
+        pixel_weight: 1.0
+        classification_weight: 1.0
+data:
+  target: taming.data.DataModule.DataModuleFromConfig
+  params:
+    batch_size: 64
+    num_workers: 64
+    train:
+      dataset: highD
+    test:
+      dataset: highD

@@ -1,0 +1,3 @@
+lightning:
+  trainer:
+    max_epochs: 1000
