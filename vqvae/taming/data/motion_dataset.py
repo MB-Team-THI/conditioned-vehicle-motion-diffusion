@@ -24,7 +24,6 @@ class MotionDataset(Dataset):
     
     def __getitem__(self, idx):
         path, class_name = self.data[idx]
-        keys = ['observed_data_x','observed_data_y', 'observed_data_vx', 'observed_data_vy', 'predicted_x', 'predicted_y']
         keys = ['observed_data_x','observed_data_y', 'observed_data_vx', 'observed_data_vy']
         scenario_id = path.rsplit('/',1)[1].replace('.mat','')
         sclist = [scipy.io.loadmat(path).get(key) for key in keys]
