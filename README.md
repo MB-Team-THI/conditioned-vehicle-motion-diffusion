@@ -44,7 +44,7 @@ conda activate cvmd
 ### 2. Get data
 The official implementation was tested on the highD dataset. However, also other publicly available datasets can be used.
 
-NOTE: Please be aware that the data examples in this repository are not taken from the highD or and other dataset. Instead, they are computer-generated for illustrative purposes. The features may not necessarily reflect actual, natural vehicle behavior.
+NOTE: Please be aware that the data examples in this repository are not taken from the highD or any other dataset. Instead, they are computer-generated for illustrative purposes. The features may not necessarily reflect actual, natural vehicle behavior.
 
 <details>
   <summary><b>highD</b></summary>
